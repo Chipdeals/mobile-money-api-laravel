@@ -1,0 +1,27 @@
+{
+    "name": "chipdeals/momo-api",
+    "description": "Easy use mobile money api to access all Africa mobile wallets",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Dougbe Euler",
+            "email": "dougbeeuler@gmail.com"
+        }
+    ],
+    "require": {
+        "guzzlehttp/guzzle": "^6.5"
+    },
+    "autoload": {
+        "psr-4": {
+            "Chipdeals\\MomoApi\\": "src/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Chipdeals\\MomoApi\\MomoProvider"
+            ]
+        }
+    }
+}
