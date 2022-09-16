@@ -23,5 +23,15 @@
                 "Chipdeals\\MomoApi\\MomoProvider"
             ]
         }
-    }
+    },
+    "keywords": [
+        "payment",
+        "mobile-money",
+        "momo",
+        "mtn-momo",
+        "moov-money",
+        "orange-money",
+        "momo-api",
+        "payment-api"
+    ]
 }
