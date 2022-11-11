@@ -34,7 +34,7 @@ class BalanceResponse
     public function getArray()
     {
         return [
-            "currency" => $this->balance->getCurrency(),
+            "countryCode" => $this->balance->getCountryCode(),
             "operator" => $this->balance->getOperator(),
             "currency" => $this->balance->getCurrency(),
             "amount" => $this->balance->getAmount(),

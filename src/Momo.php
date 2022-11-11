@@ -22,7 +22,9 @@ class Momo
 
     public function collect()
     {
-        return new CollectionRequest($this->apiKey, CollectionUtils::class);
+        $collectionRequest = new CollectionRequest($this->apiKey, CollectionUtils::class);
+        $collectionRequest->firstName("Anonymous")->lastName("Anonymous");
+        return $collectionRequest;
     }
 
     public function deposit()
