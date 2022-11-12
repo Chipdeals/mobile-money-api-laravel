@@ -15,7 +15,11 @@ class Momo
 {
     private $apiKey = "";
 
-    function __construct($apiKey)
+    function __construct()
+    {
+    }
+
+    public function setApiKey($apiKey)
     {
         $this->apiKey = $apiKey;
     }
