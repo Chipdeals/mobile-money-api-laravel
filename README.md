@@ -1,4 +1,4 @@
-# Mobile Money [Mobile Money Php Laravel](https://github.com/Chipdeals/mobile-money-api-laravel) documentation
+# Mobile Money [Mobile Money Php](https://github.com/Chipdeals/mobile-money-api-laravel) documentation
 
 ![PHP](https://img.shields.io/badge/PHP-43853D?style=for-the-badge&logo=php&logoColor=white) ![LARAVEL](https://img.shields.io/badge/laravel-43853D?style=for-the-badge&logo=laravel&logoColor=white) ![COMPOSER](https://img.shields.io/badge/composer-43853D?style=for-the-badge&logo=composer&logoColor=white)
 
@@ -7,8 +7,8 @@
 #### Other libraries documentations
 - [**Mobile Money API REST**](https://github.com/Chipdeals/Momo-Api)
 - [**Mobile Money Nodejs**](https://www.npmjs.com/package/@chipdeals/momo-api)
-- [**Mobile Money Php Laravel**](https://github.com/Chipdeals/mobile-money-api-laravel)
-- [**Mobile Money HTML Widget**](https://github.com/Chipdeals/mobile-money-api-Javascript)
+- [**Mobile Money Php**](https://github.com/Chipdeals/mobile-money-api-laravel)
+- [**Mobile Money Javascript Widget**](https://github.com/Chipdeals/mobile-money-api-Javascript)
 
 
 **Chipdeals-momo-api** is a Mobile Money API that allows you to build a quick, simple and excellent payment experience in your web and native app.This the official **Php laravel library**
@@ -35,10 +35,7 @@ composer require chipdeals/momo-api
 **Initialize Chipdeals Momo API with your API Key ([*Get apikey here*](#Contact-us)) and start**
 
 ```php=
-use \Chipdeals\MomoApi\Momo;
-// ...
-
-$momo = new Momo();
+$momo = new \Chipdeals\MomoApi\Momo();
 $momo->setApiKey("test_FOdigzgSopV8GZggZa89");
 
 //Collect 500 XOF from the +22951010200 Mobile Money wallet.
@@ -79,10 +76,7 @@ The package needs to be configured with your **account's API key**, which is ava
 For example to request 2000 XOF from the ***+22951010200*** Mobile Money wallet, the following code can be used
 
 ```php=
-use \Chipdeals\MomoApi\Momo;
-// ...
-
-$momo = new Momo();
+$momo = new \Chipdeals\MomoApi\Momo();
 $momo->setApiKey("test_FOdigzgSopV8GZggZa89");
 
 $collection = $momo
@@ -100,7 +94,7 @@ echo "<br/>" . $collection->getReference();
 
 ### Collect with a [webhook](#Webhook) to get response as soon as the payment is processed. 
 
-```php=7
+```php=4
 $collection = $momo
   ->collect()
   ->amount(2000) //Amount of the transaction
@@ -125,10 +119,7 @@ echo "<br/>" . $collection->getReference();
 You can also send 2000 XOF to the ***+22951010200*** Mobile Money wallet, with the following code
 
 ```php=
-use \Chipdeals\MomoApi\Momo;
-// ...
-
-$momo = new Momo();
+$momo = new \Chipdeals\MomoApi\Momo();
 $momo->setApiKey("test_FOdigzgSopV8GZggZa89");
 
 $deposit = $momo
@@ -145,7 +136,7 @@ echo "<br/>" . $deposit->getReference();
 ### Disburse with a [webhook](#Webhook) to get response as soon as the deposit is processed. 
 
 
-```php=7
+```php=4
 $deposit = $momo
   ->deposit()
   ->amount(2000) //Amount of the transaction
@@ -167,10 +158,7 @@ Get status of a transaction of reference `dd1e2d17-5c21-4964-b58d-198fd2aac150`
 
 
 ```php=
-use \Chipdeals\MomoApi\Momo;
-// ...
-
-$momo = new Momo();
+$momo = new \Chipdeals\MomoApi\Momo();
 $momo->setApiKey("test_FOdigzgSopV8GZggZa89");
 
 $reference = "ba32a171-cbea-45fd-8848-ac5b77580be3"
@@ -196,7 +184,6 @@ echo $transaction->checkIsCollection() . "<br/>";
 
 echo "<pre>";
 print_r($transaction->getArray());
-echo "</pre>";
 ``` 
 
 <details>
@@ -257,10 +244,7 @@ Array
 Get your Chipdeals account's balance
 
 ```php=
-use \Chipdeals\MomoApi\Momo;
-// ...
-
-$momo = new Momo();
+$momo = new \Chipdeals\MomoApi\Momo();
 $momo->setApiKey("test_FOdigzgSopV8GZggZa89");
 
 $balances =  $momo->getBalances();
@@ -273,7 +257,6 @@ foreach ($balances as $balanceKey => $balance) {
 
   echo "<pre>";
   print_r($balance->getArray());
-  echo "</pre>pre><br/>";
 }
 ```
 
@@ -319,10 +302,6 @@ All webhook payloads follow the same basic structure:
 
 Creating a webhook endpoint on your server is the same as writing any other API endpoint, but there are a few important details to note:
 
-**Verifying webhook signatures**
-When enabling webhooks, you have the option to set a ***secret hash***. Since webhook URLs are publicly accessible, the secret hash allows you to verify that incoming requests are from Chipdeals. You can specify any value as your secret hash, but we recommend something random. We also recommend to store it as an environment variable on your server.
-
-If you specify a secret hash, we'll include it in our request to your webhook URL, in a header called `verif-hash`. In the webhook endpoint, check if the `verif-hash` header is present and that it matches the secret hash you set. If the header is missing, or the value doesn't match, you can discard the request, as it isn't from Chipdeals.
 
 **Responding to webhook requests**
 To acknowledge receipt of a webhook, your endpoint **must** return a `200` HTTP status code. Any other response codes, including `3xx` codes, will be treated as a failure. **We don't care about the response body or headers.**
