@@ -21,7 +21,11 @@ class TransactionData
     private $endTimestampInSecond = "";
     private $webhookUrl = "";
     private $apiKey = "";
+    private $operatorReference = "";
     private $isCollection = false;
+    private $isWave = false;
+    private $fee = false;
+    private $merchantSupportFee = true;
 
     public function setReference($reference)
     {
@@ -210,6 +214,17 @@ class TransactionData
         return $this->apiKey;
     }
 
+    public function setOperatorReference($operatorReference)
+    {
+        $this->operatorReference = $operatorReference;
+        return $this;
+    }
+
+    public function getOperatorReference()
+    {
+        return $this->operatorReference;
+    }
+
     public function setIsCollection($isCollection)
     {
         $this->isCollection = $isCollection;
@@ -219,6 +234,39 @@ class TransactionData
     public function getIsCollection()
     {
         return $this->isCollection;
+    }
+
+    public function setIsWave($isWave)
+    {
+        $this->isWave = $isWave;
+        return $this;
+    }
+
+    public function getIsWave()
+    {
+        return $this->isWave;
+    }
+
+    public function setFee($fee)
+    {
+        $this->fee = $fee;
+        return $this;
+    }
+
+    public function getFee()
+    {
+        return $this->fee;
+    }
+
+    public function setMerchantSupportFee($merchantSupportFee)
+    {
+        $this->merchantSupportFee = $merchantSupportFee;
+        return $this;
+    }
+
+    public function getMerchantSupportFee()
+    {
+        return $this->merchantSupportFee;
     }
 
     public function getArray()
@@ -242,6 +290,10 @@ class TransactionData
             "webhookUrl" => $this->webhookUrl,
             "apiKey" => $this->apiKey,
             "isCollection" => $this->isCollection,
+            "isWave" => $this->isWave,
+            "fee" => $this->fee,
+            "operatorReference" => $this->operatorReference,
+            "merchantSupportFee" => $this->merchantSupportFee,
         ];
     }
 };

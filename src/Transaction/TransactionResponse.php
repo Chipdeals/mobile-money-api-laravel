@@ -91,6 +91,11 @@ class TransactionResponse
         return $this->transaction->getIsCollection();
     }
 
+    public function getOperatorReference()
+    {
+        return $this->transaction->getOperatorReference();
+    }
+
     public function getArray()
     {
         return [
@@ -109,6 +114,7 @@ class TransactionResponse
             "statusCode" => $this->transaction->getStatusCode(),
             "startTimestampInSecond" => $this->transaction->getStartTimestampInSecond(),
             "endTimestampInSecond" => $this->transaction->getEndTimestampInSecond(),
+            "operatorReference" => $this->transaction->getOperatorReference(),
             "isCollection" => $this->transaction->getIsCollection(),
         ];
     }

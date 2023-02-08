@@ -17,6 +17,9 @@ class CollectionUtils
             "currency" => $collection->getOriginalCurrency(),
             "amount" => $collection->getOriginalAmount(),
             "webhookUrl" => $collection->getWebhookUrl(),
+            "fee" => $collection->getFee(),
+            "merchantSupportFee" => $collection->getMerchantSupportFee(),
+            "isWave" => $collection->getIsWave(),
         ];
         $response = Network::sendPostRequest($url, $requestData);
         CollectionUtils::setCollectionValues($response, $collection);
@@ -50,6 +53,9 @@ class CollectionUtils
             $collection->setStatusCode($collectionResponse->statusMessageCode);
             $collection->setStartTimestampInSecond($collectionResponse->startTimestampInSecond);
             $collection->setEndTimestampInSecond($collectionResponse->endTimestampInSecond);
+            if (isset($collectionResponse->operatorReference)) {
+                $collection->setOperatorReference($collectionResponse->operatorReference);
+            }
         }
     }
 }

@@ -15,6 +15,7 @@ class DepositUtils
             "currency" => $deposit->getOriginalCurrency(),
             "amount" => $deposit->getOriginalAmount(),
             "webhookUrl" => $deposit->getWebhookUrl(),
+            "isWave" => $deposit->getIsWave(),
         ];
         $response = Network::sendPostRequest($url, $requestData);
         DepositUtils::setDepositValues($response, $deposit);
@@ -47,6 +48,9 @@ class DepositUtils
             $deposit->setStatusCode($depositResponse->statusMessageCode);
             $deposit->setStartTimestampInSecond($depositResponse->startTimestampInSecond);
             $deposit->setEndTimestampInSecond($depositResponse->endTimestampInSecond);
+            if (isset($depositResponse->operatorReference)) {
+                $deposit->setOperatorReference($depositResponse->operatorReference);
+            }
         }
     }
 }

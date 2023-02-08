@@ -34,6 +34,15 @@ class CollectionRequest
         $this->collection->setPhoneNumber($phoneNumber);
         return $this;
     }
+    public function withWave($withWave = true)
+    {
+        $this->collection->setIsWave($withWave);
+    }
+    public function setFee($fee, $userSupportAllFees = false)
+    {
+        $this->collection->setFee($fee);
+        $this->collection->setMerchantSupportFee(!$userSupportAllFees);
+    }
     public function firstName($firstName)
     {
         $this->collection->setFirstName($firstName);

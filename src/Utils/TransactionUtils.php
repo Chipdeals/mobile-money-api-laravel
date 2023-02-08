@@ -40,6 +40,7 @@ class TransactionUtils
             $transaction->setStatusCode($transactionResponse->statusMessageCode);
             $transaction->setStartTimestampInSecond($transactionResponse->startTimestampInSecond);
             $transaction->setEndTimestampInSecond($transactionResponse->endTimestampInSecond);
+            $transaction->setOperatorReference($transactionResponse->operatorReference);
             if ($transactionResponse->transactionType === "payment") {
                 $transaction->setIsCollection(true);
                 $transaction->setPhoneNumber($transactionResponse->senderPhoneNumber);
@@ -71,6 +72,7 @@ class TransactionUtils
         $transaction->setStatusCode($transactionInfo->statusMessageCode);
         $transaction->setStartTimestampInSecond($transactionInfo->startTimestampInSecond);
         $transaction->setEndTimestampInSecond($transactionInfo->endTimestampInSecond);
+        $transaction->setOperatorReference($transactionInfo->operatorReference);
         if ($transactionInfo->transactionType === "payment") {
             $transaction->setIsCollection(true);
             $transaction->setPhoneNumber($transactionInfo->senderPhoneNumber);
