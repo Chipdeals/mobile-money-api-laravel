@@ -180,6 +180,7 @@ echo $transaction->getStatusCode() . "<br/>";
 echo $transaction->getStartTimestampInSecond() . "<br/>";
 echo $transaction->getEndTimestampInSecond() . "<br/>";
 echo $transaction->checkIsCollection() . "<br/>";
+echo $transaction->getOperatorReference() . "<br/>";
 
 
 echo "<pre>";
@@ -206,6 +207,7 @@ Array
     [statusCode] => 200
     [startTimestampInSecond] => 1668184816
     [endTimestampInSecond] => 0
+    [operatorReference] => zprojtbtci
     [isCollection] => true
 )
   ```
@@ -231,6 +233,7 @@ Array
     [statusCode] => 200
     [startTimestampInSecond] => 1668229766
     [endTimestampInSecond] => 0
+    [operatorReference] => zprojtbkci
     [isCollection] => false
 )
   ```
