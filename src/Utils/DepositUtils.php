@@ -15,7 +15,7 @@ class DepositUtils
             "currency" => $deposit->getOriginalCurrency(),
             "amount" => $deposit->getOriginalAmount(),
             "webhookUrl" => $deposit->getWebhookUrl(),
-            "isWaveAccount" => $deposit->getIsWaveAccount(),
+            "isWave" => $deposit->getIsWaveAccount(),
         ];
         $response = Network::sendPostRequest($url, $requestData);
         DepositUtils::setDepositValues($response, $deposit);
