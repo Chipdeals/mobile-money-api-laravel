@@ -37,11 +37,13 @@ class CollectionRequest
     public function withWave($withWave = true)
     {
         $this->collection->setIsWave($withWave);
+        return $this;
     }
     public function setFee($fee, $userSupportAllFees = false)
     {
         $this->collection->setFee($fee);
         $this->collection->setMerchantSupportFee(!$userSupportAllFees);
+        return $this;
     }
     public function firstName($firstName)
     {
