@@ -34,9 +34,9 @@ class CollectionRequest
         $this->collection->setPhoneNumber($phoneNumber);
         return $this;
     }
-    public function withWave($withWave = true)
+    public function isWaveAccount($isWaveAccount = true)
     {
-        $this->collection->setIsWave($withWave);
+        $this->collection->setIsWaveAccount($isWaveAccount);
         return $this;
     }
     public function setFee($fee, $userSupportAllFees = false)

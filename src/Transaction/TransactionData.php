@@ -23,7 +23,7 @@ class TransactionData
     private $apiKey = "";
     private $operatorReference = "";
     private $isCollection = false;
-    private $isWave = false;
+    private $isWaveAccount = false;
     private $fee = false;
     private $merchantSupportFee = true;
 
@@ -236,15 +236,15 @@ class TransactionData
         return $this->isCollection;
     }
 
-    public function setIsWave($isWave)
+    public function setIsWaveAccount($isWaveAccount)
     {
-        $this->isWave = $isWave;
+        $this->isWaveAccount = $isWaveAccount;
         return $this;
     }
 
-    public function getIsWave()
+    public function getIsWaveAccount()
     {
-        return $this->isWave;
+        return $this->isWaveAccount;
     }
 
     public function setFee($fee)
@@ -290,7 +290,7 @@ class TransactionData
             "webhookUrl" => $this->webhookUrl,
             "apiKey" => $this->apiKey,
             "isCollection" => $this->isCollection,
-            "isWave" => $this->isWave,
+            "isWaveAccount" => $this->isWaveAccount,
             "fee" => $this->fee,
             "operatorReference" => $this->operatorReference,
             "merchantSupportFee" => $this->merchantSupportFee,

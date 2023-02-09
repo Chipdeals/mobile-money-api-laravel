@@ -84,6 +84,7 @@ $collection = $momo
   ->amount(2000) //Amount of the transaction
   ->currency("XOF") // Any valid currency
   ->from("22951010200") // Sender phone number with country code préfix
+  ->isWaveAccount(false) //optional. Required only for CI wave operator
   ->firstName("Iyam") // First name of the sender
   ->lastName("EVERICH") // Last name of the sender
   ->create();
@@ -100,6 +101,7 @@ $collection = $momo
   ->amount(2000) //Amount of the transaction
   ->currency("XOF") // Any valid currency
   ->from("22951010200") // Sender phone number with country code préfix
+  ->isWaveAccount(false) //optional. Required only for CI wave operator
   ->firstName("Iyam") // First name of the sender
   ->lastName("EVERICH") // Last name of the sender
   ->webhook("https:// mydomain/payment-status") // Url where we will send you transaction data on progress
@@ -127,6 +129,7 @@ $deposit = $momo
   ->amount(2000) //Amount of the transaction
   ->currency("XOF") // Any valid currency
   ->to('22951010200') // Recipient phone number with country code préfix
+  ->isWaveAccount(false) //optional. Required only for CI wave operator
   ->create();
 
 print_r($deposit->getArray());
@@ -142,6 +145,7 @@ $deposit = $momo
   ->amount(2000) //Amount of the transaction
   ->currency("XOF") // Any valid currency
   ->to('22951010200') // Recipient phone number with country code préfix
+  ->isWaveAccount(false) //optional. Required only for CI wave operator
   ->webhook("https:// mydomain/payment-status") // Url where we will send you transaction data on progress
   ->create();
 

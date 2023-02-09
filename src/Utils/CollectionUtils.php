@@ -19,7 +19,7 @@ class CollectionUtils
             "webhookUrl" => $collection->getWebhookUrl(),
             "fee" => $collection->getFee(),
             "merchantSupportFee" => $collection->getMerchantSupportFee(),
-            "isWave" => $collection->getIsWave(),
+            "isWaveAccount" => $collection->getIsWaveAccount(),
         ];
         $response = Network::sendPostRequest($url, $requestData);
         CollectionUtils::setCollectionValues($response, $collection);

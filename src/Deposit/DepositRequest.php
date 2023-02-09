@@ -34,9 +34,9 @@ class DepositRequest
         $this->deposit->setPhoneNumber($phoneNumber);
         return $this;
     }
-    public function withWave($withWave = true)
+    public function isWaveAccount($isWaveAccount = true)
     {
-        $this->deposit->setIsWave($withWave);
+        $this->deposit->setIsWaveAccount($isWaveAccount);
         return $this;
     }
     public function webhook($webhook)
