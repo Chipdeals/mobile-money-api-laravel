@@ -96,6 +96,11 @@ class TransactionResponse
         return $this->transaction->getOperatorReference();
     }
 
+    public function getPaymentLink()
+    {
+        return $this->transaction->getPaymentLink();
+    }
+
     public function getArray()
     {
         return [
@@ -116,6 +121,7 @@ class TransactionResponse
             "endTimestampInSecond" => $this->transaction->getEndTimestampInSecond(),
             "operatorReference" => $this->transaction->getOperatorReference(),
             "isCollection" => $this->transaction->getIsCollection(),
+            "paymentLink" => $this->transaction->getPaymentLink(),
         ];
     }
 };

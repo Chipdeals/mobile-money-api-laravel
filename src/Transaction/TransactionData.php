@@ -26,6 +26,7 @@ class TransactionData
     private $isWaveAccount = false;
     private $fee = false;
     private $merchantSupportFee = true;
+    private $paymentLink = "";
 
     public function setReference($reference)
     {
@@ -269,6 +270,17 @@ class TransactionData
         return $this->merchantSupportFee;
     }
 
+    public function setPaymentLink($paymentLink)
+    {
+        $this->paymentLink = $paymentLink;
+        return $this;
+    }
+
+    public function getPaymentLink()
+    {
+        return $this->paymentLink;
+    }
+
     public function getArray()
     {
         return [
@@ -294,6 +306,7 @@ class TransactionData
             "fee" => $this->fee,
             "operatorReference" => $this->operatorReference,
             "merchantSupportFee" => $this->merchantSupportFee,
+            "paymentLink" => $this->paymentLink,
         ];
     }
 };

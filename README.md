@@ -183,8 +183,9 @@ echo $transaction->getStatusMessage() . "<br/>";
 echo $transaction->getStatusCode() . "<br/>";
 echo $transaction->getStartTimestampInSecond() . "<br/>";
 echo $transaction->getEndTimestampInSecond() . "<br/>";
-echo $transaction->checkIsCollection() . "<br/>";
-echo $transaction->getOperatorReference() . "<br/>";
+echo $transaction->checkIsCollection() . "<br/>"; 
+echo $transaction->getOperatorReference() . "<br/>"; 
+echo $transaction->getPaymentLink() . "<br/>";
 
 
 echo "<pre>";
@@ -197,22 +198,23 @@ print_r($transaction->getArray());
   ```
 Array
 (
-    [reference] => ba32a171-cbea-45fd-8848-ac5b77580be3
-    [phoneNumber] => 22990630401
-    [currency] => XOF
-    [operator] => MTN
-    [firstName] => Iyam
-    [lastName] => EVERICH
-    [originalCurrency] => USD
-    [originalAmount] => 2000
-    [amount] => 1251002
-    [status] => success
-    [statusMessage] => Successfully processed transaction
-    [statusCode] => 200
-    [startTimestampInSecond] => 1668184816
-    [endTimestampInSecond] => 0
-    [operatorReference] => zprojtbtci
-    [isCollection] => true
+    [reference] => ba32a171-cbea-45fd-8848-ac5b77580be3 //reference of the transaction
+    [phoneNumber] => 22990630401 //sender phone number
+    [currency] => XOF //currency
+    [operator] => MTN //sender operator
+    [firstName] => Iyam //sender firstName
+    [lastName] => EVERICH //sender lastName
+    [originalCurrency] => USD //currency you entered
+    [originalAmount] => 2000 //amount you entered
+    [amount] => 1251002 //amount in customer's local currency
+    [status] => success //transaction status (success|pending|error)
+    [statusMessage] => Successfully processed transaction //transaction status details are here
+    [statusCode] => 200 //status of the payment (See Status Message Code section)
+    [startTimestampInSecond] => 1668184816 //timestamp in second of the moment when the transaction started
+    [endTimestampInSecond] => 0 //timestamp in second of the moment when the transaction is finished
+    [operatorReference] => zprojtbtci //reference that operator sent to customer by sms
+    [isCollection] => true 
+    [paymentLink] => https://pay.wave.com/c/cos-1ewpdr47212cd //payment link that allow you customers to finish the transaction. It is available for operators like Wave
 )
   ```
 </details>
@@ -223,21 +225,21 @@ Array
   ```
   Array
 (
-    [reference] => a0903015-a86d-46c3-98ce-bb36639d6d09
-    [phoneNumber] => 22990630401
-    [currency] => XOF
-    [operator] => MTN
+    [reference] => a0903015-a86d-46c3-98ce-bb36639d6d09 //reference of the transaction
+    [phoneNumber] => 22990630401 //recipient phone number
+    [currency] => XOF //currency
+    [operator] => MTN //recipient operator
     [firstName] => 
     [lastName] => 
-    [originalCurrency] => XOF
-    [originalAmount] => 2000
-    [amount] => 2000
-    [status] => success
-    [statusMessage] => Successfully processed transaction
-    [statusCode] => 200
-    [startTimestampInSecond] => 1668229766
-    [endTimestampInSecond] => 0
-    [operatorReference] => zprojtbkci
+    [originalCurrency] => XOF //currency you entered
+    [originalAmount] => 2000 //amount you entered
+    [amount] => 2000 //amount in customer's local currency
+    [status] => success //transaction status (success|pending|error)
+    [statusMessage] => Successfully processed transaction //transaction status details are here
+    [statusCode] => 200 //status of the disbursement (See Status Message Code section)
+    [startTimestampInSecond] => 1668229766 //timestamp in second of the moment when the transaction started
+    [endTimestampInSecond] => 0 //timestamp in second of the moment when the transaction is finished
+    [operatorReference] => zprojtbkci //reference that operator sent to customer by sms
     [isCollection] => false
 )
   ```

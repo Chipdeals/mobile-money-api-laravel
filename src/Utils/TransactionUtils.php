@@ -48,6 +48,9 @@ class TransactionUtils
                 $transaction->setOperator($transactionResponse->senderOperator);
                 $transaction->setFirstName($transactionResponse->senderFirstName);
                 $transaction->setLastName($transactionResponse->senderLastName);
+                if(isset($transactionResponse->paymentLink)){
+                    $transaction->setPaymentLink($transactionResponse->paymentLink);
+                }
             } else {
                 $transaction->setIsCollection(false);
                 $transaction->setPhoneNumber($transactionResponse->recipientPhoneNumber);

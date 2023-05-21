@@ -56,6 +56,9 @@ class CollectionUtils
             if (isset($collectionResponse->operatorReference)) {
                 $collection->setOperatorReference($collectionResponse->operatorReference);
             }
+            if(isset($collectionResponse->paymentLink)){
+                $collection->setPaymentLink($collectionResponse->paymentLink);
+            }
         }
     }
 }
