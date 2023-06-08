@@ -39,6 +39,11 @@ class CollectionRequest
         $this->collection->setIsWaveAccount($isWaveAccount);
         return $this;
     }
+    public function useOtp($otp)
+    {
+        $this->collection->setOtp($otp);
+        return $this;
+    }
     public function setFee($fee, $userSupportAllFees = false)
     {
         $this->collection->setFee($fee);

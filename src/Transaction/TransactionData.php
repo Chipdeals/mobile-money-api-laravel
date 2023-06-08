@@ -24,6 +24,7 @@ class TransactionData
     private $operatorReference = "";
     private $isCollection = false;
     private $isWaveAccount = false;
+    private $otp = "";
     private $fee = false;
     private $merchantSupportFee = true;
     private $paymentLink = "";
@@ -246,6 +247,17 @@ class TransactionData
     public function getIsWaveAccount()
     {
         return $this->isWaveAccount;
+    }
+
+    public function setOtp($otp)
+    {
+        $this->otp = $otp;
+        return $this;
+    }
+
+    public function getOtp()
+    {
+        return $this->otp;
     }
 
     public function setFee($fee)

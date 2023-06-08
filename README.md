@@ -84,7 +84,8 @@ $collection = $momo
   ->amount(2000) //Amount of the transaction
   ->currency("XOF") // Any valid currency
   ->from("22951010200") // Sender phone number with country code préfix
-  ->isWaveAccount(false) //optional. Required only for CI wave operator
+  ->isWaveAccount(false) //optional. Required only for wave operator
+  ->useOtp(false) //Required only for Orange Money Burkina. Get it from user after they generate it for your amount by doing: *144*4*6*montant#
   ->firstName("Iyam") // First name of the sender
   ->lastName("EVERICH") // Last name of the sender
   ->create();

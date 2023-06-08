@@ -20,6 +20,7 @@ class CollectionUtils
             "fee" => $collection->getFee(),
             "merchantSupportFee" => $collection->getMerchantSupportFee(),
             "isWave" => $collection->getIsWaveAccount(),
+            "otp" => $collection->getOtp(),
         ];
         $response = Network::sendPostRequest($url, $requestData);
         CollectionUtils::setCollectionValues($response, $collection);
