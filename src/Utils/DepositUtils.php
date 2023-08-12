@@ -11,6 +11,8 @@ class DepositUtils
         $url = "https://apis.chipdeals.me/momo/deposit?apikey=";
         $url .= $deposit->getApiKey();
         $requestData = [
+            "requestSource" => "laravelLib",
+            "merchantOrderId" => $deposit->getMerchantOrderId(),
             "recipientPhoneNumber" => $deposit->getPhoneNumber(),
             "currency" => $deposit->getOriginalCurrency(),
             "amount" => $deposit->getOriginalAmount(),
@@ -36,6 +38,7 @@ class DepositUtils
         if ($depositResponseFound) {
             $depositResponse = $response["data"]->deposit;
             $deposit->setReference($depositResponse->reference);
+            $deposit->setMerchantOrderId($depositResponse->merchantOrderId);
             $deposit->setPhoneNumber($depositResponse->recipientPhoneNumber);
             $deposit->setCountryCode($depositResponse->recipientCountryCode);
             $deposit->setOperator($depositResponse->recipientOperator);

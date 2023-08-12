@@ -19,6 +19,11 @@ class CollectionRequest
     }
 
 
+    public function merchantOrderId($merchantOrderId)
+    {
+        $this->collection->setMerchantOrderId($merchantOrderId);
+        return $this;
+    }
     public function amount($amount)
     {
         $this->collection->setOriginalAmount($amount);

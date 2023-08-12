@@ -5,6 +5,7 @@ namespace Chipdeals\MomoApi\Transaction;
 class TransactionData
 {
     private $reference = "";
+    private $merchantOrderId = "";
     private $phoneNumber = "";
     private $countryCode = "";
     private $operator = "";
@@ -38,6 +39,17 @@ class TransactionData
     public function getReference()
     {
         return $this->reference;
+    }
+
+    public function setMerchantOrderId($merchantOrderId)
+    {
+        $this->merchantOrderId = $merchantOrderId;
+        return $this;
+    }
+
+    public function getMerchantOrderId()
+    {
+        return $this->merchantOrderId;
     }
 
     public function setPhoneNumber($phoneNumber)
@@ -297,6 +309,7 @@ class TransactionData
     {
         return [
             "reference" => $this->reference,
+            "merchantOrderId" => $this->merchantOrderId,
             "phoneNumber" => $this->phoneNumber,
             "countryCode" => $this->countryCode,
             "operator" => $this->operator,

@@ -16,6 +16,11 @@ class TransactionResponse
         return $this->transaction->getReference();
     }
 
+    public function getMerchantOrderId()
+    {
+        return $this->transaction->getMerchantOrderId();
+    }
+
     public function getPhoneNumber()
     {
         return $this->transaction->getPhoneNumber();
@@ -105,6 +110,7 @@ class TransactionResponse
     {
         return [
             "reference" => $this->transaction->getReference(),
+            "merchantOrderId" => $this->transaction->getMerchantOrderId(),
             "phoneNumber" => $this->transaction->getPhoneNumber(),
             "currency" => $this->transaction->getCurrency(),
             "operator" => $this->transaction->getOperator(),

@@ -88,6 +88,7 @@ $collection = $momo
   ->useOtp(123456) //Required only for Orange Money Burkina. Get it from user after they generate it for your amount by doing: *144*4*6*montant# 
   ->firstName("Iyam") // First name of the sender
   ->lastName("EVERICH") // Last name of the sender
+  ->merchantOrderId("collection-test00001") //optional. If added we will check if it is uniq for your account
   ->create();
 
 print_r($collection->getArray());
@@ -102,7 +103,6 @@ $collection = $momo
   ->amount(2000) //Amount of the transaction
   ->currency("XOF") // Any valid currency
   ->from("22951010200") // Sender phone number with country code préfix
-  ->isWaveAccount(false) //optional. Required only for CI wave operator
   ->firstName("Iyam") // First name of the sender
   ->lastName("EVERICH") // Last name of the sender
   ->webhook("https:// mydomain/payment-status") // Url where we will send you transaction data on progress
@@ -131,6 +131,7 @@ $deposit = $momo
   ->currency("XOF") // Any valid currency
   ->to('22951010200') // Recipient phone number with country code préfix
   ->isWaveAccount(false) //optional. Required only for CI wave operator
+  ->merchantOrderId("deposit-test00001") //optional. If added we will check if it is uniq for your account
   ->create();
 
 print_r($deposit->getArray());
@@ -146,7 +147,6 @@ $deposit = $momo
   ->amount(2000) //Amount of the transaction
   ->currency("XOF") // Any valid currency
   ->to('22951010200') // Recipient phone number with country code préfix
-  ->isWaveAccount(false) //optional. Required only for CI wave operator
   ->webhook("https:// mydomain/payment-status") // Url where we will send you transaction data on progress
   ->create();
 
@@ -170,6 +170,7 @@ $reference = "ba32a171-cbea-45fd-8848-ac5b77580be3"
 $transaction = $momo->getStatus($reference);
 
 echo $transaction->getReference() . "<br/>";
+echo $transaction->getMerchantOrderId() . "<br/>";
 echo $transaction->getPhoneNumber() . "<br/>";
 echo $transaction->getCountryCode() . "<br/>";
 echo $transaction->getOperator() . "<br/>";
@@ -200,6 +201,7 @@ print_r($transaction->getArray());
 Array
 (
     [reference] => ba32a171-cbea-45fd-8848-ac5b77580be3 //reference of the transaction
+    [merchantOrderId] => collection-test0001 //internal reference of the transaction
     [phoneNumber] => 22990630401 //sender phone number
     [currency] => XOF //currency
     [operator] => MTN //sender operator

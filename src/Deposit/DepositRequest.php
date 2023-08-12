@@ -19,6 +19,11 @@ class DepositRequest
     }
 
 
+    public function merchantOrderId($merchantOrderId)
+    {
+        $this->deposit->setMerchantOrderId($merchantOrderId);
+        return $this;
+    }
     public function amount($amount)
     {
         $this->deposit->setOriginalAmount($amount);

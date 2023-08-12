@@ -11,6 +11,8 @@ class CollectionUtils
         $url = "https://apis.chipdeals.me/momo/requestPayment?apikey=";
         $url .= $collection->getApiKey();
         $requestData = [
+            "requestSource" => "laravelLib",
+            "merchantOrderId" => $collection->getMerchantOrderId(),
             "senderFirstName" => $collection->getFirstName(),
             "senderLastName" => $collection->getLastName(),
             "senderPhoneNumber" => $collection->getPhoneNumber(),
@@ -40,6 +42,7 @@ class CollectionUtils
         if ($collectionResponseFound) {
             $collectionResponse = $response["data"]->payment;
             $collection->setReference($collectionResponse->reference);
+            $collection->setMerchantOrderId($collectionResponse->merchantOrderId);
             $collection->setPhoneNumber($collectionResponse->senderPhoneNumber);
             $collection->setCountryCode($collectionResponse->senderCountryCode);
             $collection->setOperator($collectionResponse->senderOperator);

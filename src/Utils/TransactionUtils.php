@@ -31,6 +31,7 @@ class TransactionUtils
         if ($transactionResponseFound) {
             $transactionResponse = $response["data"]->transaction;
             $transaction->setReference($transactionResponse->reference);
+            $transaction->setMerchantOrderId($transactionResponse->merchantOrderId);
             $transaction->setOriginalCurrency($transactionResponse->originalCurrency);
             $transaction->setCurrency($transactionResponse->currency);
             $transaction->setOriginalAmount($transactionResponse->originalAmount);
@@ -66,6 +67,7 @@ class TransactionUtils
 
         $transaction = new TransactionData();
         $transaction->setReference($transactionInfo->reference);
+        $transaction->setMerchantOrderId($transactionInfo->merchantOrderId);
         $transaction->setOriginalCurrency($transactionInfo->originalCurrency);
         $transaction->setCurrency($transactionInfo->currency);
         $transaction->setOriginalAmount($transactionInfo->originalAmount);
